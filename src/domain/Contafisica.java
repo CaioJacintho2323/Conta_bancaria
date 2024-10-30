@@ -1,6 +1,6 @@
 package domain;
 
-import domain.domain.Taxa;
+import domain.Taxa;
 
 public class Contafisica extends Conta {
     private Taxa taxa;

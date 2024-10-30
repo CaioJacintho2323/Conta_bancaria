@@ -1,6 +1,5 @@
 package domain;
 
-import domain.domain.Taxa;
 
 public class ContaJuridica extends Conta {
 

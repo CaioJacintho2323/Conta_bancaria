@@ -1,4 +1,4 @@
-package domain.domain;
+package domain;
 
 public enum Taxa {
     CONTA_FISICA {
