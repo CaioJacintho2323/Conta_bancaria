@@ -2,6 +2,8 @@ import domain.Conta;
 import domain.ContaJuridica;
 import domain.Contafisica;
 
+import java.io.*;
+
 
 public class Main {
     public static void main(String[] args)  {
@@ -25,8 +27,23 @@ public class Main {
         System.out.println("Contas atualizadas");
         Conta[] contas = {c, c2};
 
-        for (int i = 0; i < contas.length; i++) {
-            System.out.println(contas[i]);
+        File file = new File("contas.txt");
+        try(FileWriter fw = new FileWriter(file); BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Conta conta : contas) {
+                bw.write(conta.toString());
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try(FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)){
+            String linha;
+            while((linha = br.readLine()) != null) {
+                System.out.println(linha);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
 
 
